@@ -62,7 +62,7 @@ export async function GET() {
     console.log("Gold24:", { gold24Buy, gold24Sell });
     console.log("Silver:", { silverBuy, silverSell });
 
-   /* await sendToBackend(
+    await sendToBackend(
       "https://apiiraqmarket.runasp.net/api/GitDataMarketIraqi/priceDinarIQ",
       { BuyPrice: usdBuy, SellPrice: usdSell }
     );
@@ -86,7 +86,6 @@ export async function GET() {
       "https://apiiraqmarket.runasp.net/api/GitDataMarketIraqi/priceSilverIQ",
       { BuyPriceGram: silverBuy, SellPriceGram: silverSell }
     );
-    */
 
     return Response.json({ success: true });
 
