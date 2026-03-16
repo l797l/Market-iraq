@@ -48,11 +48,11 @@ export async function GET() {
     const gold24Sell = gold24Match ? parseFloat(gold24Match[2].replace(/,/g, "")) : null;
 
     // ---- فضة ----
-    const silverIdx = html.lastIndexOf("xag-in-IQD/stock");
-    const silverChunk = html.substring(silverIdx, silverIdx + 500);
-    const silverMatch = silverChunk.match(
-      /text-success">([\d,]+\.?\d*)<\/td>\s*<td class="text-success">([\d,]+\.?\d*)/
-    );
+   const silverIdx = html.lastIndexOf("Silver");
+const silverChunk = html.substring(silverIdx, silverIdx + 500);
+const silverMatch = silverChunk.match(
+  /([\d,]+\.?\d*)/
+);
     const silverBuy  = silverMatch ? parseFloat(silverMatch[1].replace(/,/g, "")) : null;
     const silverSell = silverMatch ? parseFloat(silverMatch[2].replace(/,/g, "")) : null;
 
@@ -94,7 +94,6 @@ export async function GET() {
   }
 }
 
-// دالة مساعدة لإرسال البيانات
 async function sendToBackend(url, data) {
   try {
     const res = await fetch(url, {
